@@ -1,0 +1,77 @@
+body {
+    background-color: rgb(243, 228, 210);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.maincard {
+    min-height: 60vh;
+    min-width: 40%;
+    background-color: rgb(238, 245, 247);
+}
+
+.card-title {
+    text-align: center;
+    margin: 2rem;
+}
+
+.answer {
+    display: flex;
+    align-items: center;
+}
+
+.letter_box {
+    background-color: grey;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.letter_box:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.bg1 {
+    background-color: rgb(18, 18, 129);
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.25rem 0rem 0rem 0.25rem;
+}
+
+.logo {
+    height: 2.5rem;
+    margin-top: 1rem;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 7rem;
+    width: 100%;
+}
+
+nav a {
+    color: rgb(149, 178, 233);
+    width: 100%;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+nav a:hover {
+    color: whitesmoke;
+    border-left: 5px solid whitesmoke;
+    cursor: pointer;
+}
