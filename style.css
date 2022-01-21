@@ -4,12 +4,13 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    font-family: 'Rubik', sans-serif;
 }
 
 .maincard {
-    min-height: 60vh;
     min-width: 40%;
     background-color: rgb(238, 245, 247);
+    position: relative;
 }
 
 .card-title {
@@ -23,7 +24,7 @@ body {
 }
 
 .letter_box {
-    background-color: grey;
+    background-color: rgb(163, 162, 162);
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 0.25rem;
@@ -33,9 +34,9 @@ body {
     margin-right: 1rem;
 }
 
-.letter_box:hover {
-    color: white;
+.answer:hover {
     cursor: pointer;
+    opacity: 0.7;
 }
 
 .bg1 {
@@ -59,19 +60,72 @@ nav {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 7rem;
+    margin-top: 3rem;
     width: 100%;
 }
 
-nav a {
+nav div {
     color: rgb(149, 178, 233);
     width: 100%;
     text-decoration: none;
     margin-bottom: 1rem;
 }
 
-nav a:hover {
-    color: whitesmoke;
-    border-left: 5px solid whitesmoke;
-    cursor: pointer;
+.bg-danger,
+.bg-success {
+    color: white;
+}
+
+.card_footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.endsreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brain_result_img {
+    height: 4rem;
+    margin-bottom: 2rem;
+}
+
+.endsreen_text {
+    font-size: 1.25rem;
+}
+
+.endsreen_score {
+    display: flex;
+}
+
+.endsreen_score_text {
+    font-size: 1.25rem;
+    color: rgb(255, 129, 71);
+    margin-right: 1rem;
+}
+
+.btn-outline-primary {
+    border: none;
+    margin-top: 1rem;
+}
+
+.tropy {
+    height: 11rem;
+    position: absolute;
+    right: 0;
+    bottom: 3rem;
+}
+
+@media(max-width: 900px) {
+    .hide_mobile {
+        display: none;
+    }
+    .maincard {
+        height: 100vh;
+        width: 100%;
+    }
 }

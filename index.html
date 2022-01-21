@@ -11,51 +11,55 @@
     <script src="script.js"></script>
 </head>
 
-<body>
+<body onload="init()">
     <div class="card maincard mb-3" style="max-width: 540px;">
         <div class="row g-0">
-            <div class="col-md-3 side bg1">
+            <div class="col-md-3 side bg1 hide_mobile">
                 <img src="img/logo.png" class="logo">
                 <nav>
-                    <a href="#">HTML</a>
-                    <a href="#">CSS</a>
-                    <a href="#">JS</a>
-                    <a href="#">Java</a>
+                    <div>HTML</div>
+                    <div>CSS</div>
+                    <div>JS</div>
+                    <div>Java</div>
                 </nav>
             </div>
             <div class="col-md-8">
-                <div class="card-body">
+                <div class="card-body" id="cardBody">
 
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title" id="question">Card title</h5>
 
-                    <div class="card mb-2">
+                    <div class="card mb-2" id="answer_1" onclick="answer('answer_1')">
                         <div class="card-body answer">
                             <div class="letter_box">A</div>
-                            <div> This is some text within a card body.</div>
+                            <div id="answerA"> This is some text within a card body.</div>
                         </div>
                     </div>
 
-                    <div class="card mb-2">
+                    <div class="card mb-2" id="answer_2" onclick="answer('answer_2')">
                         <div class="card-body answer">
                             <div class="letter_box">B</div>
-                            <div> This is some text within a card body.</div>
+                            <div id="answerB"> This is some text within a card body.</div>
                         </div>
                     </div>
 
-                    <div class="card mb-2">
+                    <div class="card mb-2" id="answer_3" onclick="answer('answer_3')">
                         <div class="card-body answer">
                             <div class="letter_box">C</div>
-                            <div> This is some text within a card body.</div>
+                            <div id="answerC"> This is some text within a card body.</div>
                         </div>
                     </div>
 
-                    <div class="card mb-2">
+                    <div class="card mb-2" id="answer_4" onclick="answer('answer_4')">
                         <div class="card-body answer">
                             <div class="letter_box">D</div>
-                            <div> This is some text within a card body.</div>
+                            <div id="answerD"> This is some text within a card body.</div>
                         </div>
                     </div>
 
+                    <div class="card_footer">
+                        <h5 class="card-title">Frage <span id="currentQuestion"></span> von 7</h5>
+                        <button type="button" class="btn btn-primary" id="nextButton" disabled onclick="nextQuestion()">Nächste Frage</button>
+                    </div>
                 </div>
 
             </div>
