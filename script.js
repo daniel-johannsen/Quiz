@@ -62,41 +62,64 @@ let questionNumber = 1;
 
 let counter = 0;
 
+let AUDIO_SUCCESS = new Audio('audio/win.mp3');
+
+let AUDIO_FAIL = new Audio('audio/fail.mp3');
+
+let AUDIO_END = new Audio('audio/end.mp3');
+
 function init() {
     showQuestion();
     currentQuestionNumber();
-
 }
 
 
 function showQuestion() {
-    let question = questions[currentQuestion];
-    if (currentQuestion >= questions.length) {
+    if (gameIsOver()) {
         showEndScreen();
+        AUDIO_END.play();
     } else {
-
-        document.getElementById('question').innerHTML = question['question'];
-        document.getElementById('answerA').innerHTML = question['answer_1'];
-        document.getElementById('answerB').innerHTML = question['answer_2'];
-        document.getElementById('answerC').innerHTML = question['answer_3'];
-        document.getElementById('answerD').innerHTML = question['answer_4'];
+        loadQuestions();
+        showProgressBar();
         currentQuestionNumber();
     }
+}
+
+function gameIsOver() {
+    return currentQuestion >= questions.length;
+}
+
+function showProgressBar() {
+    let percent = currentQuestion / questions.length;
+    percent = Math.round(percent * 100);
+    document.getElementById('progressBar').innerHTML = `${percent}%`;
+    document.getElementById('progressBar').style = `width: ${percent}%;`;
+}
+
+function loadQuestions() {
+    let question = questions[currentQuestion];
+    document.getElementById('question').innerHTML = question['question'];
+    document.getElementById('answerA').innerHTML = question['answer_1'];
+    document.getElementById('answerB').innerHTML = question['answer_2'];
+    document.getElementById('answerC').innerHTML = question['answer_3'];
+    document.getElementById('answerD').innerHTML = question['answer_4'];
 }
 
 function currentQuestionNumber() {
     document.getElementById('currentQuestion').innerHTML = '';
     document.getElementById('currentQuestion').innerHTML = questionNumber;
+    document.getElementById('allQuestions').innerHTML = '';
+    document.getElementById('allQuestions').innerHTML = questions.length;
 }
 
 function answer(selection) {
     let question = questions[currentQuestion];
     if (selection == question['right_answer']) {
         counter++;
-        console.log('true!');
+        AUDIO_SUCCESS.play();
         document.getElementById(selection).classList.add('bg-success');
     } else {
-        console.log('false!');
+        AUDIO_FAIL.play();
         document.getElementById(question['right_answer']).classList.add('bg-success');
         document.getElementById(selection).classList.add('bg-danger');
     }
@@ -131,7 +154,7 @@ function showEndScreen() {
         <div class="endsreen_text"><b>HTML QUIZ</b></div>
         <br>
             <div class="endsreen_score">        
-                <div class="endsreen_score_text"><b>YOUR SCORE</b></div><div class="endsreen_text"><b>${counter}</b>/7</div>
+                <div class="endsreen_score_text"><b>YOUR SCORE</b></div><div class="endsreen_text"><b>${counter}</b>/${questions.length}</div>
             </div>
         <br>
         <button type="button" class="btn btn-primary">SHARE</button>
@@ -140,10 +163,3 @@ function showEndScreen() {
     </div>
     `;
 }
-
-// function restart() {
-//     currentQuestion = 0;
-//     questionNumber = 1;
-//     counter = 0;
-//     showQuestion();
-// }
